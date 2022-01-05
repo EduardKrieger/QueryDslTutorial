@@ -110,19 +110,13 @@ public class FruitResource {
     return this.fruitRepository.findAllQueryDslPriceRange(min, max);
   }
 
+
   @GET
-  @Path("/Test/{param}")
+  @Path("/name/{name}")
   @Produces("application/json")
-  public List<Fruit> test(@PathParam String param) {
+  public List<Fruit> findByName(@PathParam String name){
 
-    List<Fruit> meineFruechte = this.fruitRepository.findAllQueryDslColor(param);
-    System.out.println(meineFruechte.size());
-    for (Fruit frucht : meineFruechte) {
-      System.out.println(frucht.getName());
-    }
-    // meineFruechte.stream().map(Fruit::getName).collect(Collectors.toList());
-    return meineFruechte;
-
+     return null;
   }
 
 }

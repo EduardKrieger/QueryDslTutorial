@@ -6,7 +6,7 @@ import org.acme.spring.data.jpa.model.Fruit;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface FruitRepository extends CrudRepository<Fruit, Long>, FruitFragment {
+public interface FruitRepository extends CrudRepository<Fruit, Long> {
 
   List<Fruit> findByColor(String color);
 
