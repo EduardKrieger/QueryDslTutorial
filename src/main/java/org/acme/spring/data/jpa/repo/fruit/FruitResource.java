@@ -70,15 +70,6 @@ public class FruitResource {
   }
 
   @GET
-  @Path("origin/{origin}")
-  @Produces("application/json")
-  public List<Fruit> findByOrigin(@PathParam String origin) {
-
-    return this.fruitRepository.findAllQueryDslOrigin(origin);
-
-  }
-
-  @GET
   @Path("maxPrice/{price}")
   @Produces("application/json")
   public List<Fruit> findByMaxPriceDesc(@PathParam Float price) {
@@ -94,13 +85,6 @@ public class FruitResource {
     return this.fruitRepository.findAllQueryDslMinPriceAsc(price);
   }
 
-  @GET
-  @Path("/color/{color}/country/{country}")
-  @Produces("application/json")
-  public List<Fruit> findByMaxColorCountry(@PathParam String country, @PathParam String color) {
-
-    return this.fruitRepository.findAllQueryDslColorCountry(country, color);
-  }
 
   @GET
   @Path("/priceMin/{min}/priceMax{max}")
