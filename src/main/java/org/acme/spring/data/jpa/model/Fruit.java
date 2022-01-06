@@ -22,9 +22,6 @@ public class Fruit {
   @Column(name = "COLOR")
   private String color;
 
-  @Column(name = "ORIGIN")
-  private String origin;
-
   @Column(name = "PRICE")
   private Float price;
 
@@ -32,11 +29,10 @@ public class Fruit {
 
   }
 
-  public Fruit(String name, String color, String origin, Float price) {
+  public Fruit(String name, String color, Float price) {
 
     this.name = name;
     this.color = color;
-    this.origin = origin;
     this.price = price;
 
   }
@@ -69,16 +65,6 @@ public class Fruit {
   public void setColor(String color) {
 
     this.color = color;
-  }
-
-  public String getOrigin() {
-
-    return this.origin;
-  }
-
-  public void setOrigin(String origin) {
-
-    this.origin = origin;
   }
 
   public Float getPrice() {

@@ -38,12 +38,11 @@ public class FruitResource {
   }
 
   @POST
-  @Path("/name/{name}/color/{color}/origin/{origin}/price/{price}")
+  @Path("/name/{name}/color/{color}/price/{price}")
   @Produces("application/json")
-  public Fruit create(@PathParam String name, @PathParam String color, @PathParam String origin,
-      @PathParam Float price) {
+  public Fruit create(@PathParam String name, @PathParam String color, @PathParam Float price) {
 
-    return this.fruitRepository.save(new Fruit(name, color, origin, price));
+    return this.fruitRepository.save(new Fruit(name, color, price));
   }
 
   @PUT
@@ -85,7 +84,6 @@ public class FruitResource {
     return this.fruitRepository.findAllQueryDslMinPriceAsc(price);
   }
 
-
   @GET
   @Path("/priceMin/{min}/priceMax{max}")
   @Produces("application/json")
@@ -94,13 +92,12 @@ public class FruitResource {
     return this.fruitRepository.findAllQueryDslPriceRange(min, max);
   }
 
-
   @GET
   @Path("/name/{name}")
   @Produces("application/json")
-  public List<Fruit> findByName(@PathParam String name){
+  public List<Fruit> findByName(@PathParam String name) {
 
-     return null;
+    return null;
   }
 
 }
