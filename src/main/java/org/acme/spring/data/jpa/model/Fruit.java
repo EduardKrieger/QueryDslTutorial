@@ -1,16 +1,10 @@
 package org.acme.spring.data.jpa.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "FRUIT")
@@ -18,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Fruit {
 
   @Id
-  @GeneratedValue // (strategy = GenerationType.TABLE)
+  @GeneratedValue
   @Column(name = "ID")
   private Long id;
 
@@ -28,10 +22,8 @@ public class Fruit {
   @Column(name = "COLOR")
   private String color;
 
-  @JsonBackReference
-  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  @JoinColumn(name = "ORIGIN_ID")
-  private Origin origin;
+  @Column(name = "ORIGIN")
+  private String origin;
 
   @Column(name = "PRICE")
   private Float price;
@@ -44,7 +36,7 @@ public class Fruit {
 
     this.name = name;
     this.color = color;
-    this.origin = new Origin(origin);
+    this.origin = origin;
     this.price = price;
 
   }
@@ -79,12 +71,12 @@ public class Fruit {
     this.color = color;
   }
 
-  public Origin getOrigin() {
+  public String getOrigin() {
 
     return this.origin;
   }
 
-  public void setOrigin(Origin origin) {
+  public void setOrigin(String origin) {
 
     this.origin = origin;
   }
